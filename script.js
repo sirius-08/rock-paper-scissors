@@ -55,11 +55,11 @@ function game() {
                 console.log("It's a tie!");
                 break;
             case "User":
-                console.log(`You Win! ${playerSelection} beats ${computerSelection}`)
+                console.log(`You Win! ${capitalize(playerSelection)} beats ${capitalize(computerSelection)}`)
                 playerScore++;
                 break;
             case "Computer":
-                console.log(`You Lose! ${computerSelection} beats ${playerSelection}`);
+                console.log(`You Lose! ${capitalize(computerSelection)} beats ${capitalize(playerSelection)}`);
                 computerScore++;
                 break;
         }
