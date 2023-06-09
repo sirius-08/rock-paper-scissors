@@ -34,12 +34,44 @@ function playRound(playerSelection, computerSelection) {
     
     switch(diff%3) {
         case 0:
-            return "It's a Tie";
+            return "Tie";
         case 1:
-            return `You Win! ${capitalize(playerSelection)} beats ${capitalize(computerSelection)}`;
+            return "User";
         case 2:
-            return `You Lose! ${capitalize(computerSelection)} beats ${capitalize(playerSelection)}`;
+            return "Computer";
     }
 
     return "It's a tie";
+}
+
+function game() {
+    let playerScore = 0, computerScore = 0;
+    for(let i=0; i < 5; i++) {
+        let playerSelection = prompt("Enter your choice among rock, paper and scissors");
+        let computerSelection = getComputerChoice();
+
+        switch(playRound(playerSelection, computerSelection)) {
+            case "Tie":
+                console.log("It's a tie!");
+                break;
+            case "User":
+                console.log(`You Win! ${playerSelection} beats ${computerSelection}`)
+                playerScore++;
+                break;
+            case "Computer":
+                console.log(`You Lose! ${computerSelection} beats ${playerSelection}`);
+                computerScore++;
+                break;
+        }
+    }
+
+    if(playerScore == computerScore) {
+        return "It's a tie";
+    }
+    else if(playerScore > computerScore) {
+        return "You Win";
+    }
+    else {
+        return "You Lose";
+    }
 }
